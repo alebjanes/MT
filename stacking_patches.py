@@ -8,24 +8,25 @@ base_tif=gdal.Open("/Users/alexandrabjanes/MT/Datos500m/normalized/DistanceToUA.
 
 #SETTINGS
 outdir = "/Users/alexandrabjanes/MT/Samples7x7"
+indir = "/Users/alexandrabjanes/MT/Datos500m/Normalized/"
 year=2018
 yearmonth=201812
 patchsize=7
 
-tmax = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/" +str(year)+ "/" + str(yearmonth) + "tx.tif")
-tmin = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/" +str(year)+ "/" + str(yearmonth) + "tn.tif")
-windspeed = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/" +str(year)+ "/" + str(yearmonth) + "ws.tif")
-prec = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/" +str(year)+ "/" + str(yearmonth) + "rn.tif")
-aet = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/" +str(year)+ "/" + str(yearmonth) + "aet.tif")
-cwd = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/" +str(year)+ "/" + str(yearmonth) + "cwd.tif")
-NDVI = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/" +str(year)+ "/" + str(yearmonth) + "NDVI.tif")
-aspect = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/Aspect.tif")
-slope = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/Slope.tif")
-elev = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/Elevation.tif")
-surface = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/SurfaceRoughness.tif")
-distroads = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/DistanceToRoads.tif")
-distrivers = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/Distancetowater.tif")
-distUA = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/Normalized/DistanceToUA.tif")
+tmax = gdal_array.LoadFile(indir +str(year)+ "/" + str(yearmonth) + "tx.tif")
+tmin = gdal_array.LoadFile(indir +str(year)+ "/" + str(yearmonth) + "tn.tif")
+windspeed = gdal_array.LoadFile(indir +str(year)+ "/" + str(yearmonth) + "ws.tif")
+prec = gdal_array.LoadFile(indir +str(year)+ "/" + str(yearmonth) + "rn.tif")
+aet = gdal_array.LoadFile(indir +str(year)+ "/" + str(yearmonth) + "aet.tif")
+cwd = gdal_array.LoadFile(indir +str(year)+ "/" + str(yearmonth) + "cwd.tif")
+NDVI = gdal_array.LoadFile(indir +str(year)+ "/" + str(yearmonth) + "NDVI.tif")
+aspect = gdal_array.LoadFile(indir + "Aspect.tif")
+slope = gdal_array.LoadFile(indir + "Slope.tif")
+elev = gdal_array.LoadFile(indir + "Elevation.tif")
+surface = gdal_array.LoadFile(indir + "SurfaceRoughness.tif")
+distroads = gdal_array.LoadFile(indir + "DistanceToRoads.tif")
+distrivers = gdal_array.LoadFile(indir + "Distancetowater.tif")
+distUA = gdal_array.LoadFile(indir + "DistanceToUA.tif")
 
 ignition_class = gdal_array.LoadFile("/Users/alexandrabjanes/MT/IncendiosBiobio/Rasters/clipped/IF" + str(yearmonth) + ".sdat")
 #IRD = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/IRD/IRD" + str(yearmonth) + ".tif")
