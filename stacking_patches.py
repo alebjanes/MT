@@ -4,11 +4,12 @@ from osgeo import gdal_array
 from sklearn.feature_extraction import image
 import itertools, random
 
-base_tif=gdal.Open("/Users/alexandrabjanes/MT/Datos500m/normalized/DistanceToUA.tif")
+path = ""
+base_tif=gdal.Open(path + "Datos500m/normalized/DistanceToUA.tif")
 
 #SETTINGS
-outdir = "/Users/alexandrabjanes/MT/Samples7x7"
-indir = "/Users/alexandrabjanes/MT/Datos500m/Normalized/"
+outdir = ""
+indir = ""
 year=2018
 yearmonth=201812
 patchsize=7
@@ -28,8 +29,7 @@ distroads = gdal_array.LoadFile(indir + "DistanceToRoads.tif")
 distrivers = gdal_array.LoadFile(indir + "Distancetowater.tif")
 distUA = gdal_array.LoadFile(indir + "DistanceToUA.tif")
 
-ignition_class = gdal_array.LoadFile("/Users/alexandrabjanes/MT/IncendiosBiobio/Rasters/clipped/IF" + str(yearmonth) + ".sdat")
-#IRD = gdal_array.LoadFile("/Users/alexandrabjanes/MT/Datos500m/IRD/IRD" + str(yearmonth) + ".tif")
+ignition_class = gdal_array.LoadFile("" + str(yearmonth) + ".sdat")
 
 Stack=np.dstack((ignition_class,tmax,tmin,windspeed,prec,aet, cwd, NDVI, aspect, slope, elev, surface, distroads, distrivers, distUA))
 #Stack=np.dstack((IRD,tmax,tmin,windspeed,prec,aet, cwd, NDVI, aspect, slope, elev, surface, distroads, distrivers, distUA))
@@ -199,4 +199,4 @@ for i in range(550-patchsize):
 print(Dataset.shape)
 np.save(outdir + '/sample' + str(yearmonth) + '.npy', Dataset)
 
-GeoTiff1banda('/Users/alexandrabjanes/MT/Cover_3/cover'+ str(yearmonth) +'.tif', covered, driver="GTiff", NDV=-99999, DataType=gdal.GDT_Float32, base=base_tif)
+GeoTiff1banda('/'+ str(yearmonth) +'.tif', covered, driver="GTiff", NDV=-99999, DataType=gdal.GDT_Float32, base=base_tif)
